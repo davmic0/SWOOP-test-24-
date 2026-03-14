@@ -47,6 +47,25 @@
             transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
+        /* Progress Bar Styles (v27.0 Vertical) */
+        .progress-bar-segment {
+            height: 4px;
+            width: 24px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+        .progress-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0%;
+            background: #38bdf8; /* sky-400 */
+            transition: width 0.1s ease-out;
+        }
+
         @media (max-width: 768px) {
             .tech-card { flex: 0 0 85%; }
             .tech-visual-asset { width: 100%; margin-bottom: 0px; }
@@ -66,7 +85,12 @@
                 <a href="#tech" class="hover:text-sky-400 transition">Technology</a>
                 <a href="#team" class="hover:text-sky-400 transition">About us</a>
             </div>
-            <a href="#contact" class="bg-sky-500 text-slate-950 px-5 py-2 md:px-6 md:py-2.5 rounded-xl text-xs font-black hover:bg-white transition uppercase tracking-widest text-center">ASK FOR A DEMO</a>
+            
+            <div class="flex flex-col gap-1 items-center">
+                <div class="progress-bar-segment"><div id="fill-1" class="progress-fill"></div></div>
+                <div class="progress-bar-segment"><div id="fill-2" class="progress-fill"></div></div>
+                <div class="progress-bar-segment"><div id="fill-3" class="progress-fill"></div></div>
+            </div>
         </div>
     </nav>
 
@@ -87,8 +111,8 @@
                 Deleting human dependency on the ground through AI-powered autonomous loading.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="#tech" class="bg-white/70 backdrop-blur-sm text-slate-950 px-12 py-5 rounded-2xl font-black hover:bg-white transition-all text-lg tracking-widest text-center">THE TECHNOLOGY</a>
                 <a href="#problem" class="bg-slate-900/40 backdrop-blur-sm border border-white/20 px-12 py-5 rounded-2xl font-bold hover:bg-slate-800 transition-all text-lg tracking-widest text-center">WHY IT MATTERS</a>
+                <a href="#tech" class="bg-slate-900/40 backdrop-blur-sm border border-white/20 px-12 py-5 rounded-2xl font-black hover:bg-slate-800 transition-all text-lg tracking-widest text-center">THE TECHNOLOGY</a>
             </div>
         </div>
     </section>
@@ -128,8 +152,8 @@
             <div id="carousel" class="swipe-container mb-12">
                 <div class="glass p-12 rounded-[4rem] tech-card shadow-2xl text-left">
                     <div class="text-sky-500 text-sm font-mono mb-8 tracking-widest uppercase">/01 Precision</div>
-                    <h3 class="text-3xl font-bold mb-6">Neural Latch</h3>
-                    <p class="text-slate-400 text-lg leading-relaxed">Sub-centimeter accuracy using edge-computed computer vision, even in extreme conditions.</p>
+                    <h3 class="text-3xl font-bold mb-6">Perching Latch</h3>
+                    <p class="text-slate-400 text-lg leading-relaxed">Sub-centimeter accuracy using computer vision, even in extreme conditions.</p>
                 </div>
                 <div class="bg-sky-500 p-12 rounded-[4rem] tech-card text-slate-950 shadow-2xl text-left">
                     <div class="text-slate-900 text-sm font-mono mb-8 tracking-widest uppercase">/02 Integration</div>
@@ -148,7 +172,6 @@
     <section id="team" class="py-32 bg-[#020617] px-6">
         <div class="max-w-7xl mx-auto text-center">
             <h2 class="text-5xl md:text-8xl font-black mb-20 italic tracking-tighter uppercase leading-none text-white text-center">THE <span class="text-sky-500">LEADERSHIP.</span></h2>
-            
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="glass p-8 md:p-12 rounded-[4rem] flex flex-col items-center group hover:border-sky-500 transition-all duration-500">
                     <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-8 border-4 border-slate-800 group-hover:border-sky-500 transition-all duration-500">
@@ -157,13 +180,12 @@
                     <h3 class="text-3xl font-black uppercase italic mb-2 tracking-tighter text-white">Goni Frenkel</h3>
                     <p class="text-sky-400 font-mono text-sm tracking-[0.3em] mb-6 uppercase">Chief Executive Officer</p>
                     <p class="text-slate-400 text-lg max-w-sm mb-8 leading-relaxed text-center">
-                        Leading the vision to redefine autonomous logistics. [Insert short bio details here regarding Goni's background and strategic leadership].
+                        Leading the vision to redefine autonomous logistics. [Insert bio text here]
                     </p>
                     <a href="https://www.linkedin.com/in/goni-frenkel/" target="_blank" class="text-slate-300 hover:text-white transition">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     </a>
                 </div>
-
                 <div class="glass p-8 md:p-12 rounded-[4rem] flex flex-col items-center group hover:border-sky-500 transition-all duration-500">
                     <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-8 border-4 border-slate-800 group-hover:border-sky-500 transition-all duration-500">
                         <img src="Michel color.png" alt="Michel David" class="w-full h-full object-cover">
@@ -171,7 +193,7 @@
                     <h3 class="text-3xl font-black uppercase italic mb-2 tracking-tighter text-white">Michel David</h3>
                     <p class="text-sky-400 font-mono text-sm tracking-[0.3em] mb-6 uppercase">Chief Technology Officer</p>
                     <p class="text-slate-400 text-lg max-w-sm mb-8 leading-relaxed text-center">
-                        Architecting the robotics of the future. [Insert short bio details here regarding Michel's expertise in AI-vision and hardware integration].
+                        Architecting the robotics of the future. [Insert bio text here]
                     </p>
                     <a href="https://www.linkedin.com/in/helixator/" target="_blank" class="text-slate-300 hover:text-white transition">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -193,9 +215,21 @@
     </footer>
 
     <script>
+        // Progress Indicator Logic
+        window.onscroll = function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            // Map scroll to 3 bars
+            document.getElementById("fill-1").style.width = Math.min(100, scrolled * 3) + "%";
+            document.getElementById("fill-2").style.width = Math.max(0, Math.min(100, (scrolled - 33.3) * 3)) + "%";
+            document.getElementById("fill-3").style.width = Math.max(0, Math.min(100, (scrolled - 66.6) * 3)) + "%";
+        };
+
+        // Technology Carousel Logic
         const carousel = document.getElementById('carousel');
         let isMoving = true;
-
         function autoScroll() {
             if (!isMoving) return;
             const cardWidth = carousel.querySelector('.tech-card').offsetWidth + 32;
@@ -205,13 +239,9 @@
                 carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
             }
         }
-
         setInterval(autoScroll, 3500);
-
         carousel.addEventListener('mousedown', () => isMoving = false);
         carousel.addEventListener('touchstart', () => isMoving = false);
     </script>
-
 </body>
-
 </html>
