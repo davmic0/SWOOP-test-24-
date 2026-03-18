@@ -35,7 +35,6 @@
             transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        /* Applications Image Styling */
         .app-card img {
             width: 100%;
             height: 240px;
@@ -45,7 +44,7 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* Vertical Progress Bar */
+        /* Vertical Progress Bar & Mobile Menu (v30.0) */
         .progress-bar-segment {
             height: 4px;
             width: 24px;
@@ -64,6 +63,21 @@
             transition: width 0.1s ease-out;
         }
 
+        #mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 1rem;
+            width: 200px;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         @media (max-width: 768px) {
             .tech-card, .app-card { flex: 0 0 85%; }
         }
@@ -72,10 +86,11 @@
 <body class="overflow-x-hidden">
 
     <nav class="fixed top-0 w-full z-50 px-4 md:px-6 py-3 md:py-4"> 
-        <div class="max-w-7xl mx-auto glass rounded-2xl md:rounded-3xl px-6 py-2 md:py-3 flex justify-between items-center text-center">
+        <div class="max-w-7xl mx-auto glass rounded-2xl md:rounded-3xl px-6 py-2 md:py-3 flex justify-between items-center text-center relative">
             <a href="#hero">
                 <img src="logo on dark@4x.png" alt="Swoop Logo" class="h-6 md:h-9 w-auto">
             </a>
+            
             <div class="hidden md:flex space-x-10 text-[11px] uppercase tracking-[0.3em] font-bold text-slate-300">
                 <a href="#problem" class="hover:text-sky-400 transition">What we do</a>
                 <a href="#tech" class="hover:text-sky-400 transition">Technology</a>
@@ -83,10 +98,17 @@
                 <a href="#team" class="hover:text-sky-400 transition">About us</a>
             </div>
             
-            <div class="flex flex-col gap-1 items-center">
+            <div class="flex flex-col gap-1 items-center cursor-pointer group" onclick="toggleMenu()">
                 <div class="progress-bar-segment"><div id="fill-1" class="progress-fill"></div></div>
                 <div class="progress-bar-segment"><div id="fill-2" class="progress-fill"></div></div>
                 <div class="progress-bar-segment"><div id="fill-3" class="progress-fill"></div></div>
+
+                <div id="mobile-menu" class="glass rounded-2xl p-4 flex flex-col gap-4 text-[10px] uppercase tracking-widest font-bold text-slate-300 text-right">
+                    <a href="#problem" class="hover:text-sky-400">What we do</a>
+                    <a href="#tech" class="hover:text-sky-400">Technology</a>
+                    <a href="#apps" class="hover:text-sky-400">Applications</a>
+                    <a href="#team" class="hover:text-sky-400">About us</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -100,7 +122,7 @@
         </div>
         <div class="relative z-10 max-w-7xl">
             <img src="logo on dark@4x.png" alt="Swoop" class="h-16 md:h-20 mx-auto mb-10 drop-shadow-2xl">
-            <h1 class="text-5xl md:text-9xl font-black mb-8 tracking-tighter italic leading-none text-white text-center">
+            <h1 class="text-5xl md:text-9xl font-black mb-8 tracking-tighter italic leading-none text-white">
                 HANDS-FREE <br>
                 <span class="text-sky-400 md:text-[8.5rem] whitespace-nowrap uppercase tracking-tighter">LOGISTICS</span>
             </h1>
@@ -117,11 +139,11 @@
     <section id="problem" class="py-32 bg-slate-950 px-6">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-24 items-center">
             <div>
-                <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter uppercase italic leading-none">True <span class="text-sky-400">Autonomy.</span></h2>
+                <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter uppercase italic leading-none">True <span class="text-sky-400">Autonomy</span></h2>
                 <div class="space-y-6 text-slate-300 text-xl leading-relaxed">
                     <p>Drones are smart in the air, but "dumb" on the ground. Most operations still require humans to swap batteries and hook up cargo. This is the bottleneck.</p>
-                    <p><strong class="text-white">Battery Swap:</strong> Hot-swap in seconds to keep fleets in the air indefinitely.</p>
                     <p><strong class="text-white">Payload Handling:</strong> We replace manual hooks with an AI-powered arm that finds, secures, and releases cargo automatically.</p>
+                    <p><strong class="text-white">Battery Swap:</strong> Hot-swap in seconds to keep fleets in the air indefinitely.</p>
                 </div>
             </div>
             <div class="grid grid-cols-1 gap-6 text-center">
@@ -218,7 +240,7 @@
 
     <footer id="contact" class="py-40 bg-slate-950 border-t border-slate-900 px-6 text-center text-white">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-5xl md:text-8xl font-black mb-10 tracking-tighter uppercase italic leading-none">Ready for <br><span class="text-sky-400">Autonomy?</span></h2>
+            <h2 class="text-5xl md:text-8xl font-black mb-10 tracking-tighter uppercase italic leading-none text-white text-center">Ready for <br><span class="text-sky-400">Autonomy?</span></h2>
             <div class="flex flex-col md:flex-row gap-6 justify-center max-w-2xl mx-auto mt-12 text-center">
                 <input type="email" placeholder="work@company.com" class="bg-slate-900 border border-slate-800 px-10 py-6 rounded-3xl w-full text-lg focus:outline-none focus:ring-4 ring-sky-500/20 transition text-white">
                 <button class="bg-sky-500 text-slate-950 px-12 py-6 rounded-3xl font-black text-xl hover:bg-white transition whitespace-nowrap uppercase tracking-widest text-center">Inquire</button>
@@ -227,6 +249,20 @@
     </footer>
 
     <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Close menu when clicking outside or on a link
+        document.addEventListener('click', function(event) {
+            const menuTrigger = document.querySelector('.cursor-pointer');
+            const menu = document.getElementById('mobile-menu');
+            if (!menuTrigger.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        });
+
         window.onscroll = function() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
