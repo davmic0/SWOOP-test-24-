@@ -15,19 +15,7 @@
         .video-container video { width: 100%; height: 100%; object-fit: cover; filter: brightness(1.1) contrast(1.1); }
         .hero-gradient { background: linear-gradient(to top, #020617 0%, transparent 60%, rgba(2,6,23,0.3) 100%); }
 
-        /* Technology Section Layering */
-        #tech { position: relative; min-height: 100vh; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8rem 0; }
-        
-        .tech-visual-asset {
-            position: relative;
-            width: 85%; 
-            max-width: 1100px;
-            z-index: 10; 
-            opacity: 0.8;
-            filter: drop-shadow(0 0 50px rgba(56, 189, 248, 0.3));
-            margin-bottom: 0px; 
-        }
-
+        /* Carousel Layouts */
         .swipe-container {
             position: relative;
             z-index: 20; 
@@ -41,13 +29,23 @@
         }
         .swipe-container::-webkit-scrollbar { display: none; }
         
-        .tech-card { 
+        .tech-card, .app-card { 
             flex: 0 0 380px; 
             scroll-snap-align: center; 
             transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        /* Progress Bar Styles (v27.0 Vertical) */
+        /* Applications Image Styling */
+        .app-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 2rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Vertical Progress Bar */
         .progress-bar-segment {
             height: 4px;
             width: 24px;
@@ -62,14 +60,12 @@
             top: 0;
             height: 100%;
             width: 0%;
-            background: #38bdf8; /* sky-400 */
+            background: #38bdf8;
             transition: width 0.1s ease-out;
         }
 
         @media (max-width: 768px) {
-            .tech-card { flex: 0 0 85%; }
-            .tech-visual-asset { width: 100%; margin-bottom: 0px; }
-            #tech { padding: 4rem 0; }
+            .tech-card, .app-card { flex: 0 0 85%; }
         }
     </style>
 </head>
@@ -83,6 +79,7 @@
             <div class="hidden md:flex space-x-10 text-[11px] uppercase tracking-[0.3em] font-bold text-slate-300">
                 <a href="#problem" class="hover:text-sky-400 transition">What we do</a>
                 <a href="#tech" class="hover:text-sky-400 transition">Technology</a>
+                <a href="#apps" class="hover:text-sky-400 transition">Applications</a>
                 <a href="#team" class="hover:text-sky-400 transition">About us</a>
             </div>
             
@@ -103,9 +100,9 @@
         </div>
         <div class="relative z-10 max-w-7xl">
             <img src="logo on dark@4x.png" alt="Swoop" class="h-16 md:h-20 mx-auto mb-10 drop-shadow-2xl">
-            <h1 class="text-5xl md:text-9xl font-black mb-8 tracking-tighter italic leading-none text-white">
+            <h1 class="text-5xl md:text-9xl font-black mb-8 tracking-tighter italic leading-none text-white text-center">
                 HANDS-FREE <br>
-                <span class="text-sky-400 md:text-[8.5rem] whitespace-nowrap uppercase tracking-tighter">LOGISTICS.</span>
+                <span class="text-sky-400 md:text-[8.5rem] whitespace-nowrap uppercase tracking-tighter">LOGISTICS</span>
             </h1>
             <p class="text-slate-100 text-xl md:text-3xl mb-12 max-w-3xl mx-auto font-light leading-relaxed">
                 Deleting human dependency on the ground through AI-powered autonomous loading.
@@ -123,33 +120,28 @@
                 <h2 class="text-5xl md:text-7xl font-black mb-8 tracking-tighter uppercase italic leading-none">True <span class="text-sky-400">Autonomy.</span></h2>
                 <div class="space-y-6 text-slate-300 text-xl leading-relaxed">
                     <p>Drones are smart in the air, but "dumb" on the ground. Most operations still require humans to swap batteries and hook up cargo. This is the bottleneck.</p>
+                    <p><strong class="text-white">Battery Swap:</strong> Hot-swap in seconds to keep fleets in the air indefinitely.</p>
                     <p><strong class="text-white">Payload Handling:</strong> We replace manual hooks with an AI-powered arm that finds, secures, and releases cargo automatically.</p>
-                    <p><strong class="text-white">Battery Swap:</strong> Instead of hours of downtime for charging, our system hot-swaps batteries in seconds, keeping your fleet in the air indefinitely.</p>
-                </div>
-                <div class="mt-10 p-8 border-l-4 border-sky-500 bg-sky-500/5 rounded-2xl">
-                    <p class="text-2xl font-bold italic text-white leading-tight">"From a flying tool to a 24/7 worker."</p>
                 </div>
             </div>
             <div class="grid grid-cols-1 gap-6 text-center">
                 <div class="glass p-10 rounded-[3rem] border-sky-500/20">
                     <h4 class="text-sky-400 font-mono text-sm tracking-widest mb-4 uppercase">FLEET UPTIME</h4>
                     <div class="text-7xl font-black mb-2 text-white">98%</div>
-                    <p class="text-slate-500 text-xs uppercase tracking-widest">Minimal Ground Downtime</p>
                 </div>
                 <div class="glass p-10 rounded-[3rem] border-sky-500/20">
                     <h4 class="text-sky-400 font-mono text-sm tracking-widest mb-4 uppercase">LABOR COST</h4>
                     <div class="text-7xl font-black mb-2 text-white">0.0</div>
-                    <p class="text-slate-500 text-xs uppercase tracking-widest">Ground Crew Not Required</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="tech">
+    <section id="tech" class="py-32">
         <div class="max-w-7xl mx-auto relative w-full px-6 text-center">
             <h2 class="text-5xl md:text-8xl font-black mb-8 italic tracking-tighter uppercase leading-none z-50 relative">TALON <span class="text-sky-400">5</span></h2>
-            <img src="swoop_one_image_1.png" alt="Hardware Layout" class="tech-visual-asset mx-auto">
-            <div id="carousel" class="swipe-container mb-12">
+            <img src="swoop_one_image_1.png" alt="Hardware Layout" class="mx-auto relative z-10 w-4/5 max-w-[1100px] opacity-80 mb-12">
+            <div id="tech-carousel" class="swipe-container">
                 <div class="glass p-12 rounded-[4rem] tech-card shadow-2xl text-left">
                     <div class="text-sky-500 text-sm font-mono mb-8 tracking-widest uppercase">/01 Precision</div>
                     <h3 class="text-3xl font-bold mb-6">Perching Latch</h3>
@@ -158,12 +150,39 @@
                 <div class="bg-sky-500 p-12 rounded-[4rem] tech-card text-slate-950 shadow-2xl text-left">
                     <div class="text-slate-900 text-sm font-mono mb-8 tracking-widest uppercase">/02 Integration</div>
                     <h3 class="text-3xl font-black mb-6 uppercase italic">Universal Hub</h3>
-                    <p class="text-slate-950 font-semibold text-lg leading-relaxed">Patented interface designed to retrofit 90% of commercial cargo UAV frames.</p>
+                    <p class="text-slate-950 font-semibold text-lg leading-relaxed">Retrofit 90% of commercial cargo UAV frames.</p>
                 </div>
                 <div class="glass p-12 rounded-[4rem] tech-card shadow-2xl text-left">
                     <div class="text-sky-500 text-sm font-mono mb-8 tracking-widest uppercase">/03 Scale</div>
                     <h3 class="text-3xl font-bold mb-6">Autonomous Dock</h3>
-                    <p class="text-slate-400 text-lg leading-relaxed">Turn any flat surface into a high-frequency autonomous logistics node.</p>
+                    <p class="text-slate-400 text-lg leading-relaxed">High-frequency autonomous logistics node.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apps" class="py-32 bg-slate-900/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl md:text-8xl font-black mb-16 italic tracking-tighter uppercase leading-none text-center">MISSION <span class="text-sky-400">READY.</span></h2>
+            
+            <div id="app-carousel" class="swipe-container">
+                <div class="glass p-10 rounded-[4rem] app-card shadow-2xl text-left">
+                    <img src="path_1.jpg" alt="Perimeter Security">
+                    <div class="text-sky-500 text-sm font-mono mb-4 tracking-widest uppercase">/01 SECURITY</div>
+                    <h3 class="text-3xl font-bold mb-4">Perimeter Security</h3>
+                    <p class="text-slate-400 text-lg leading-relaxed">Autonomous drone patrols with no landing or downtime.</p>
+                </div>
+                <div class="glass p-10 rounded-[4rem] app-card shadow-2xl text-left">
+                    <img src="path_2.jpg" alt="Aerial Relay">
+                    <div class="text-sky-500 text-sm font-mono mb-4 tracking-widest uppercase">/02 COMMS</div>
+                    <h3 class="text-3xl font-bold mb-4">Aerial Relay</h3>
+                    <p class="text-slate-400 text-lg leading-relaxed">Continuous airborne connectivity - no tether, no manual intervention.</p>
+                </div>
+                <div class="glass p-10 rounded-[4rem] app-card shadow-2xl text-left">
+                    <img src="path_3.png" alt="Range Expansion">
+                    <div class="text-sky-500 text-sm font-mono mb-4 tracking-widest uppercase">/03 LOGISTICS</div>
+                    <h3 class="text-3xl font-bold mb-4">Extended Range & Borders</h3>
+                    <p class="text-slate-400 text-lg leading-relaxed">Cover long distances and secure borderlines using autonomous swap points.</p>
                 </div>
             </div>
         </div>
@@ -171,30 +190,24 @@
 
     <section id="team" class="py-32 bg-[#020617] px-6">
         <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-5xl md:text-8xl font-black mb-20 italic tracking-tighter uppercase leading-none text-white text-center">THE <span class="text-sky-500">LEADERSHIP.</span></h2>
+            <h2 class="text-5xl md:text-8xl font-black mb-20 italic tracking-tighter uppercase leading-none text-white text-center">THE <span class="text-sky-500">LEADERSHIP</span></h2>
             <div class="grid md:grid-cols-2 gap-12">
-                <div class="glass p-8 md:p-12 rounded-[4rem] flex flex-col items-center group hover:border-sky-500 transition-all duration-500">
-                    <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-8 border-4 border-slate-800 group-hover:border-sky-500 transition-all duration-500">
+                <div class="glass p-8 md:p-12 rounded-[4rem] flex flex-col items-center group transition-all duration-500">
+                    <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-8 border-4 border-slate-800 transition-all duration-500">
                         <img src="Goni.jpg" alt="Goni Frenkel" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-3xl font-black uppercase italic mb-2 tracking-tighter text-white">Goni Frenkel</h3>
                     <p class="text-sky-400 font-mono text-sm tracking-[0.3em] mb-6 uppercase">Chief Executive Officer</p>
-                    <p class="text-slate-400 text-lg max-w-sm mb-8 leading-relaxed text-center">
-                        Leading the vision to redefine autonomous logistics. [Insert bio text here]
-                    </p>
                     <a href="https://www.linkedin.com/in/goni-frenkel/" target="_blank" class="text-slate-300 hover:text-white transition">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     </a>
                 </div>
-                <div class="glass p-8 md:p-12 rounded-[4rem] flex flex-col items-center group hover:border-sky-500 transition-all duration-500">
-                    <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-8 border-4 border-slate-800 group-hover:border-sky-500 transition-all duration-500">
+                <div class="glass p-8 md:p-12 rounded-[4rem] flex flex-col items-center group transition-all duration-500">
+                    <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-8 border-4 border-slate-800 transition-all duration-500">
                         <img src="Michel color.png" alt="Michel David" class="w-full h-full object-cover">
                     </div>
                     <h3 class="text-3xl font-black uppercase italic mb-2 tracking-tighter text-white">Michel David</h3>
                     <p class="text-sky-400 font-mono text-sm tracking-[0.3em] mb-6 uppercase">Chief Technology Officer</p>
-                    <p class="text-slate-400 text-lg max-w-sm mb-8 leading-relaxed text-center">
-                        Architecting the robotics of the future. [Insert bio text here]
-                    </p>
                     <a href="https://www.linkedin.com/in/helixator/" target="_blank" class="text-slate-300 hover:text-white transition">
                         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     </a>
@@ -203,10 +216,9 @@
         </div>
     </section>
 
-    <footer id="contact" class="py-40 bg-slate-950 border-t border-slate-900 px-6 text-center">
+    <footer id="contact" class="py-40 bg-slate-950 border-t border-slate-900 px-6 text-center text-white">
         <div class="max-w-4xl mx-auto">
-            <img src="logo on dark@4x.png" alt="Swoop" class="h-12 mx-auto mb-16 grayscale opacity-30">
-            <h2 class="text-5xl md:text-8xl font-black mb-10 tracking-tighter uppercase italic leading-none text-white text-center">Ready for <br><span class="text-sky-400">Autonomy?</span></h2>
+            <h2 class="text-5xl md:text-8xl font-black mb-10 tracking-tighter uppercase italic leading-none">Ready for <br><span class="text-sky-400">Autonomy?</span></h2>
             <div class="flex flex-col md:flex-row gap-6 justify-center max-w-2xl mx-auto mt-12 text-center">
                 <input type="email" placeholder="work@company.com" class="bg-slate-900 border border-slate-800 px-10 py-6 rounded-3xl w-full text-lg focus:outline-none focus:ring-4 ring-sky-500/20 transition text-white">
                 <button class="bg-sky-500 text-slate-950 px-12 py-6 rounded-3xl font-black text-xl hover:bg-white transition whitespace-nowrap uppercase tracking-widest text-center">Inquire</button>
@@ -215,33 +227,33 @@
     </footer>
 
     <script>
-        // Progress Indicator Logic
         window.onscroll = function() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
-            
-            // Map scroll to 3 bars
             document.getElementById("fill-1").style.width = Math.min(100, scrolled * 3) + "%";
             document.getElementById("fill-2").style.width = Math.max(0, Math.min(100, (scrolled - 33.3) * 3)) + "%";
             document.getElementById("fill-3").style.width = Math.max(0, Math.min(100, (scrolled - 66.6) * 3)) + "%";
         };
 
-        // Technology Carousel Logic
-        const carousel = document.getElementById('carousel');
-        let isMoving = true;
-        function autoScroll() {
-            if (!isMoving) return;
-            const cardWidth = carousel.querySelector('.tech-card').offsetWidth + 32;
-            if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth - 10) {
-                carousel.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
-            }
+        function setupCarousel(id) {
+            const carousel = document.getElementById(id);
+            let isMoving = true;
+            setInterval(() => {
+                if (!isMoving) return;
+                const card = carousel.querySelector('.tech-card, .app-card');
+                const cardWidth = card.offsetWidth + 32;
+                if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth - 10) {
+                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+                }
+            }, 3500);
+            carousel.addEventListener('mousedown', () => isMoving = false);
+            carousel.addEventListener('touchstart', () => isMoving = false);
         }
-        setInterval(autoScroll, 3500);
-        carousel.addEventListener('mousedown', () => isMoving = false);
-        carousel.addEventListener('touchstart', () => isMoving = false);
+        setupCarousel('tech-carousel');
+        setupCarousel('app-carousel');
     </script>
 </body>
 </html>
